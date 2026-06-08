@@ -1,0 +1,15 @@
+rules_version = '2';
+
+// CarCare Pro — each user can only read/write their own subtree.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+
+      // vehicles, maintenance, fuel, expenses, documents
+      match /{collection}/{docId} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+    }
+  }
+}

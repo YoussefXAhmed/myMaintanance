@@ -1,0 +1,63 @@
+name: carcare_pro
+description: "CarCare Pro (صياناتي) — A premium automotive maintenance, fuel, expense and vehicle-health management platform."
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # State management
+  flutter_riverpod: ^2.5.1
+
+  # Routing
+  go_router: ^14.2.7
+
+  # Design / UI
+  google_fonts: ^6.2.1
+  flutter_animate: ^4.5.0
+  fl_chart: ^0.69.0
+
+  # Local storage / cache
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  shared_preferences: ^2.3.2
+
+  # Firebase (optional at runtime — app degrades gracefully to local mode)
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  cloud_firestore: ^5.4.4
+  firebase_storage: ^12.3.4
+  google_sign_in: ^6.2.1
+  sign_in_with_apple: ^6.1.2
+
+  # Notifications
+  flutter_local_notifications: ^17.2.3
+  timezone: ^0.9.4
+
+  # Utilities
+  # Wide range so it matches whatever `flutter_localizations` pins on your
+  # Flutter SDK (0.19.x on 3.24–3.27, 0.20.x on 3.29+). Avoids a version-solve
+  # conflict on newer Flutter. The intl APIs used here are stable across these.
+  intl: ">=0.19.0 <0.22.0"
+  uuid: ^4.5.1
+  image_picker: ^1.1.2
+  path_provider: ^2.1.4
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/illustrations/
