@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/ui_catalog.dart';
 import '../../localization/app_localizations.dart';
+import '../../models/enums.dart';
 import '../../services/ai_advisor_service.dart';
 import '../../themes/app_colors.dart';
 

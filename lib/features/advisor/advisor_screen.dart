@@ -11,6 +11,7 @@ import '../../providers/data_providers.dart';
 import '../../providers/settings_provider.dart';
 import '../../providers/vehicle_provider.dart';
 import '../../services/ai_advisor_service.dart';
+import '../../services/health_service.dart';
 import '../../themes/app_colors.dart';
 import '../../themes/app_dimens.dart';
 import '../../themes/app_theme.dart';

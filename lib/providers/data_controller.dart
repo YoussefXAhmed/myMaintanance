@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../models/enums.dart';
 import '../models/expense.dart';
 import '../models/fuel_log.dart';
 import '../models/maintenance_record.dart';

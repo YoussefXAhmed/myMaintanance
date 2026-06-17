@@ -1,0 +1,66 @@
+name: Deploy Web (GitHub Pages)
+
+# Builds the Flutter web app and deploys it to GitHub Pages on every push to
+# main, giving a permanent, installable PWA URL:
+#   https://youssefxahmed.github.io/myMaintanance/
+# The repo ships source only, so we generate the web/ scaffolding in CI (this
+# does NOT touch lib/), mirroring the android/ generation in build-apk.yml.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}   # lets you run it manually from the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; newer pushes supersede in-progress ones.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Generate web/ project
+        run: flutter create --platforms=web --org com.carcarepro --project-name carcare_pro .
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      # base-href must match the repo path so assets resolve under /myMaintanance/.
+      - name: Build web (release)
+        run: flutter build web --release --base-href "/myMaintanance/"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

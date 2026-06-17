@@ -10,6 +10,21 @@ system (frosted surfaces, dynamic blur, floating navigation, spring animations).
 
 ---
 
+## 📲 Install (any device)
+
+- **Web app / PWA — iPhone, Android, desktop:**
+  **https://youssefxahmed.github.io/myMaintanance/**
+  Open the link, then use your browser's **Install app** / **Add to Home Screen**.
+  It runs fully offline after the first load.
+- **Android APK:** grab the latest build from the
+  [**Releases**](https://github.com/YoussefXAhmed/myMaintanance/releases/latest)
+  page and install it (enable "install unknown apps" if prompted).
+
+> Both are built and published automatically by GitHub Actions on every push to
+> `main` (see `.github/workflows/`).
+
+---
+
 ## ✨ Features
 
 | Area | What's included |

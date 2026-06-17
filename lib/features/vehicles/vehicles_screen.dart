@@ -7,6 +7,7 @@ import '../../core/formatters.dart';
 import '../../core/router/app_router.dart';
 import '../../core/ui_catalog.dart';
 import '../../localization/app_localizations.dart';
+import '../../models/enums.dart';
 import '../../models/vehicle.dart';
 import '../../providers/settings_provider.dart';
 import '../../providers/vehicle_provider.dart';
